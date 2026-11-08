@@ -1,0 +1,42 @@
+{
+  "id": "show_001_duke",
+  "title": "I Married a Broken Soldier. He was a Duke",
+  "language": "en",
+  "target_market": "US / Global Microdrama Audiences",
+  "genre": "Romance / Drama / Royalty / Identity Reveal",
+  "episodes_count": 50,
+  "status": "ready",
+  "created_at": "2026-11-08T17:28:41.410Z",
+  "last_run_id": "run_001_baseline",
+  "promos_found": 148,
+  "avg_score": 7.82,
+  "funnel_phases": [
+    {
+      "id": "betrayal",
+      "name": "Betrayal & Degradation",
+      "episode_range": [
+        1,
+        15
+      ],
+      "description": "Lady Eleanor betrays Julian; exile and public humiliation"
+    },
+    {
+      "id": "briar_trial",
+      "name": "Briar Trial & Survival",
+      "episode_range": [
+        16,
+        35
+      ],
+      "description": "Julian and Briar survive lethal family schemes"
+    },
+    {
+      "id": "ducal_reveal",
+      "name": "Ducal Reveal & Retribution",
+      "episode_range": [
+        36,
+        50
+      ],
+      "description": "Julian reveals sovereign power and claims the duchy"
+    }
+  ]
+}

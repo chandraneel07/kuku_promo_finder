@@ -20,8 +20,8 @@ const server = http.createServer((req, res) => {
   let reqPath = req.url.split('?')[0];
   if (reqPath === '/' || reqPath === '') {
     reqPath = '/web/index.html';
-  } else if (reqPath.startsWith('/data/')) {
-    reqPath = '/outputs/' + reqPath.replace('/data/', '');
+  } else if (reqPath.includes('/data/')) {
+    reqPath = '/outputs/' + reqPath.substring(reqPath.indexOf('/data/') + 6);
   }
 
   const filePath = path.join(BASE_DIR, reqPath);

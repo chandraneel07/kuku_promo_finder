@@ -1,0 +1,116 @@
+{
+  "show_id": "show_001_duke",
+  "description": "Gold Standard Benchmark Promos curated by human editors for regression testing",
+  "gold_promos": [
+    {
+      "id": "GOLD-01",
+      "name": "Episode 42: Ducal Crest Sovereign Reveal",
+      "target_episode": 42,
+      "expected_start_sec": 4,
+      "expected_end_sec": 52,
+      "expected_duration": 48,
+      "expected_archetype": "Identity Reveal / Power Shift",
+      "acceptable_tolerance_sec": 2,
+      "key_dialogue": "Arrest the Regent"
+    },
+    {
+      "id": "GOLD-02",
+      "name": "Episode 01: Divorce Decree & Glass Shatter",
+      "target_episode": 1,
+      "expected_start_sec": 0,
+      "expected_end_sec": 45,
+      "expected_duration": 45,
+      "expected_archetype": "Public Humiliation / Betrayal",
+      "acceptable_tolerance_sec": 3,
+      "key_dialogue": "Sign the deed, Julian"
+    },
+    {
+      "id": "GOLD-03",
+      "name": "Episode 14: Briar Poison Wine Accusation",
+      "target_episode": 14,
+      "expected_start_sec": 10,
+      "expected_end_sec": 55,
+      "expected_duration": 45,
+      "expected_archetype": "Threat & Standoff",
+      "acceptable_tolerance_sec": 3,
+      "key_dialogue": "Drink it yourself"
+    },
+    {
+      "id": "GOLD-04",
+      "name": "Episode 22: Contract Marriage Ultimatum",
+      "target_episode": 22,
+      "expected_start_sec": 5,
+      "expected_end_sec": 48,
+      "expected_duration": 43,
+      "expected_archetype": "Romantic Ultimatum / Proposal",
+      "acceptable_tolerance_sec": 2.5,
+      "key_dialogue": "Marry me, or face the magistrate alone"
+    },
+    {
+      "id": "GOLD-05",
+      "name": "Episode 38: Assassin Ambush in Courtyard",
+      "target_episode": 38,
+      "expected_start_sec": 12,
+      "expected_end_sec": 58,
+      "expected_duration": 46,
+      "expected_archetype": "Violence & Action Climax",
+      "acceptable_tolerance_sec": 3,
+      "key_dialogue": "No one leaves this courtyard alive"
+    },
+    {
+      "id": "GOLD-06",
+      "name": "Episode 41: Regent Slap and Cane Snapped",
+      "target_episode": 41,
+      "expected_start_sec": 2,
+      "expected_end_sec": 42,
+      "expected_duration": 40,
+      "expected_archetype": "Public Humiliation / Betrayal",
+      "acceptable_tolerance_sec": 2,
+      "key_dialogue": "You are a cripple"
+    },
+    {
+      "id": "GOLD-07",
+      "name": "Episode 03: Eleanor Stabs Heirloom Ring",
+      "target_episode": 3,
+      "expected_start_sec": 8,
+      "expected_end_sec": 50,
+      "expected_duration": 42,
+      "expected_archetype": "Public Humiliation / Betrayal",
+      "acceptable_tolerance_sec": 3,
+      "key_dialogue": "Worthless trinket"
+    },
+    {
+      "id": "GOLD-08",
+      "name": "Episode 18: Crypt Secret Will Discovery",
+      "target_episode": 18,
+      "expected_start_sec": 15,
+      "expected_end_sec": 56,
+      "expected_duration": 41,
+      "expected_archetype": "Identity Reveal / Power Shift",
+      "acceptable_tolerance_sec": 2.5,
+      "key_dialogue": "The seal is unbroken"
+    },
+    {
+      "id": "GOLD-09",
+      "name": "Episode 49: The Coronation & Retribution",
+      "target_episode": 49,
+      "expected_start_sec": 6,
+      "expected_end_sec": 52,
+      "expected_duration": 46,
+      "expected_archetype": "Identity Reveal / Power Shift",
+      "acceptable_tolerance_sec": 2,
+      "key_dialogue": "Long live the Duke"
+    },
+    {
+      "id": "GOLD-10",
+      "name": "Episode 29: Midnight Poison Antidote Race",
+      "target_episode": 29,
+      "expected_start_sec": 10,
+      "expected_end_sec": 58,
+      "expected_duration": 48,
+      "expected_archetype": "Threat & Standoff",
+      "acceptable_tolerance_sec": 3,
+      "key_dialogue": "She has ten minutes left"
+    }
+  ]
+}

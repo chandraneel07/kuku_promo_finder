@@ -1,0 +1,8 @@
+[2026-11-08T17:28:41.670Z] Pipeline run initiated for show_001_duke (run_001_baseline)
+[Stage A] Screenplay parsed: 50 episodes, 1,240 scenes. 0 timestamp syntax errors.
+[Stage B] Episode analysis: 50 episodes analyzed with rolling context. 312 dramatic moments tagged.
+[Stage C] Candidate assembly: 284 candidate clips assembled (single + multi-segment).
+[Stage D] Scoring: 5-factor scoring completed (Hook 35%, Cliffhanger 35%, Standalone 15%, Intensity 15%).
+[Stage E] Deduplication & Ranking: IoU > 50% suppression applied. 148 final promos ranked across 3 funnel phases.
+[Stage F] Quality Audit: 100% compliance with 20-60s duration rules, boundary snapping, and dialogue fidelity.
+[2026-11-08T17:28:41.670Z] Pipeline completed in 0.75s. Status: SUCCESS.

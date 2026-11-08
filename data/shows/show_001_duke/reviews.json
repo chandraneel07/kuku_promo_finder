@@ -1,0 +1,29 @@
+{
+  "PROMO-001": {
+    "status": "approved",
+    "boundary_adjustment": {
+      "start_delta_sec": 0,
+      "end_delta_sec": 1
+    },
+    "notes": "Best conversion hook for cold TikTok / Reels traffic. Let the Ducal crest seal hold 1 second longer.",
+    "reviewed_at": "2026-11-08T22:30:00.000Z"
+  },
+  "PROMO-002": {
+    "status": "approved",
+    "boundary_adjustment": {
+      "start_delta_sec": 0,
+      "end_delta_sec": 0
+    },
+    "notes": "Excellent slap pacing. Tested well in internal editorial screen.",
+    "reviewed_at": "2026-11-08T22:32:00.000Z"
+  },
+  "PROMO-005": {
+    "status": "rejected",
+    "boundary_adjustment": {
+      "start_delta_sec": 0,
+      "end_delta_sec": 0
+    },
+    "notes": "Tone too dark without immediate retribution in the same clip.",
+    "reviewed_at": "2026-11-08T22:35:00.000Z"
+  }
+}

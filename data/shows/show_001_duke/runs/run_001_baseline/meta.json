@@ -1,0 +1,18 @@
+{
+  "run_id": "run_001_baseline",
+  "show_id": "show_001_duke",
+  "created_at": "2026-11-08T17:28:41.669Z",
+  "provider": "mock",
+  "model": "Deterministic Stage-Based Engine",
+  "status": "completed",
+  "episodes_processed": 50,
+  "candidates_generated": 284,
+  "promos_ranked": 148,
+  "tier_s_count": 24,
+  "tier_a_count": 72,
+  "tier_b_count": 52,
+  "avg_score": 7.82,
+  "execution_time_ms": 750,
+  "tokens_used": 0,
+  "cost_usd": 0
+}

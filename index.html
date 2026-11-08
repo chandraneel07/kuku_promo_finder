@@ -224,10 +224,10 @@
 
     async function loadData() {
       try {
-        const res = await fetch('/data/promos_ranked.json');
+        const res = await fetch('./data/promos_ranked.json');
         allPromos = await res.json();
         
-        const qRes = await fetch('/data/quality_check_report.json');
+        const qRes = await fetch('./data/quality_check_report.json');
         qualityReport = await qRes.json();
 
         document.getElementById('metric-total').textContent = allPromos.length;
@@ -505,7 +505,7 @@
     }
 
     function downloadCSV() {
-      window.location.href = '/data/promos_ranked.csv';
+      window.location.href = './data/promos_ranked.csv';
     }
 
     window.onload = loadData;

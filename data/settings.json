@@ -1,0 +1,61 @@
+{
+  "active_provider": "mock",
+  "providers": {
+    "mock": {
+      "id": "mock",
+      "name": "Offline Deterministic Mock (Zero API Key)",
+      "enabled": true,
+      "description": "Built-in fast heuristic provider for instant evaluation, offline testing, and reviewing."
+    },
+    "gemini": {
+      "id": "gemini",
+      "name": "Google Gemini",
+      "enabled": true,
+      "api_key": "",
+      "model": "gemini-2.0-flash",
+      "temperature": 0.2,
+      "max_tokens": 2048,
+      "description": "Fast, high-fidelity multimodal reasoning for microdrama pacing and hook discovery."
+    },
+    "openai": {
+      "id": "openai",
+      "name": "OpenAI / Compatible (Groq, OpenRouter, Together)",
+      "enabled": false,
+      "api_key": "",
+      "base_url": "https://api.openai.com/v1",
+      "model": "gpt-4o-mini",
+      "temperature": 0.2,
+      "max_tokens": 2048
+    },
+    "anthropic": {
+      "id": "anthropic",
+      "name": "Anthropic Claude",
+      "enabled": false,
+      "api_key": "",
+      "model": "claude-3-5-sonnet-20241022",
+      "temperature": 0.2,
+      "max_tokens": 2048
+    },
+    "ollama": {
+      "id": "ollama",
+      "name": "Local Ollama",
+      "enabled": false,
+      "base_url": "http://localhost:11434",
+      "model": "llama3.2:3b",
+      "temperature": 0.2
+    }
+  },
+  "scoring_weights": {
+    "hook_strength": 0.35,
+    "cliffhanger_strength": 0.35,
+    "standalone_clarity": 0.15,
+    "emotional_intensity": 0.15
+  },
+  "constraints": {
+    "min_duration_sec": 20,
+    "max_duration_sec": 60,
+    "max_segments": 3,
+    "min_segment_sec": 3,
+    "dedupe_iou_threshold": 0.5
+  }
+}
