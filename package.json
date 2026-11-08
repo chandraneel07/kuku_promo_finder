@@ -1,0 +1,23 @@
+{
+  "name": "kuku-microdrama-promo-finder",
+  "version": "1.0.0",
+  "description": "Kuku AI Generalist Assignment — Problem 1: Find the Promos",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "pipeline": "node run_pipeline.js",
+    "build": "node deploy_prep.js"
+  },
+  "keywords": [
+    "kuku",
+    "microdrama",
+    "ai",
+    "promo-finder",
+    "screenplay-analysis"
+  ],
+  "author": "Kuku AI Generalist Candidate",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

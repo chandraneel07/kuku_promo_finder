@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-black text-white">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kuku MicroPromo Engine | Problem 1 Demo</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+    
+    :root {
+      /* Official Kuku Design System Tokens (from kuku.app) */
+      --kuku-brand-red: #EC1C24;
+      --kuku-brand-red-hover: #D4161D;
+      --kuku-brand-red-subtle: rgba(236, 28, 36, 0.12);
+      --kuku-brand-red-border: rgba(236, 28, 36, 0.28);
+      
+      --kuku-bg-black: #0A0A0A;
+      --kuku-surface-card: #161616;
+      --kuku-surface-elevated: #202020;
+      --kuku-border-subtle: #2C2C2C;
+      --kuku-border-strong: #3A3838;
+      
+      --kuku-text-white: #FFFFFF;
+      --kuku-text-secondary: #D4D4D8;
+      --kuku-text-muted: #8E8E93;
+      
+      --kuku-accent-amber: #F59E0B;
+      --kuku-accent-amber-subtle: rgba(245, 158, 11, 0.12);
+    }
+
+    body { 
+      font-family: 'Figtree', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; 
+      background-color: var(--kuku-bg-black);
+      color: var(--kuku-text-white);
+      letter-spacing: -0.015em;
+    }
+
+    h1, h2, h3, h4, .font-heading {
+      font-family: 'Figtree', sans-serif;
+      font-weight: 700;
+    }
+
+    .mono { 
+      font-family: 'JetBrains Mono', monospace; 
+    }
+
+    /* Kuku style subtle scrollbar */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #0A0A0A; }
+    ::-webkit-scrollbar-thumb { background: #2C2C2C; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: #3A3838; }
+  </style>
+</head>
+<body class="bg-[#0A0A0A] text-[#FFFFFF] min-h-screen antialiased">
+
+  <!-- Header (Styled directly after kuku.app) -->
+  <header class="border-b border-[#2C2C2C] bg-[#161616]/95 backdrop-blur sticky top-0 z-40 px-6 py-4">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="h-10 w-10 rounded-xl bg-[#EC1C24] flex items-center justify-center font-black text-xl text-white shadow-sm shadow-[#EC1C24]/20">
+          K
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <h1 class="text-lg font-extrabold tracking-tight text-white">Kuku Microdrama Promo Discovery</h1>
+            <span class="px-2 py-0.5 text-xs font-bold rounded-md bg-[#EC1C24]/12 text-[#EC1C24] border border-[#EC1C24]/25">Studio Engine</span>
+          </div>
+          <p class="text-xs text-[#8E8E93]">Show: <span class="text-white font-medium">"I Married a Broken Soldier. He was a Duke"</span> (Episodes 1–50)</p>
+        </div>
+      </div>
+
+      <!-- Quick Metrics -->
+      <div class="flex items-center gap-3 text-xs mono">
+        <div class="bg-[#202020] px-3 py-1.5 rounded-lg border border-[#2C2C2C]">
+          <span class="text-[#8E8E93]">Episodes:</span> <span class="text-white font-semibold">50</span>
+        </div>
+        <div class="bg-[#202020] px-3 py-1.5 rounded-lg border border-[#2C2C2C]">
+          <span class="text-[#8E8E93]">Promos Extracted:</span> <span class="text-white font-semibold" id="metric-total">148</span>
+        </div>
+        <div class="bg-[#202020] px-3 py-1.5 rounded-lg border border-[#2C2C2C]">
+          <span class="text-[#8E8E93]">Duration Target:</span> <span class="text-[#F59E0B] font-semibold">20s–60s</span>
+        </div>
+        <button onclick="downloadCSV()" class="bg-[#EC1C24] hover:bg-[#D4161D] text-white font-semibold px-4 py-1.5 rounded-lg transition flex items-center gap-1.5 shadow-sm shadow-[#EC1C24]/25">
+          <i class="fa-solid fa-download text-xs"></i> Export CSV
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-6 py-8">
+
+    <!-- Strategic Funnel Banner -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+      <div class="bg-[#161616] border border-[#2C2C2C] rounded-xl p-5 relative hover:border-[#3A3838] transition">
+        <div class="text-[#EC1C24] text-xs font-bold uppercase tracking-wider mb-1 flex items-center gap-1.5">
+          <i class="fa-solid fa-play text-[10px]"></i> Phase 1: Days 1–2 (Top-of-Funnel)
+        </div>
+        <h3 class="text-sm font-bold text-white mb-1.5">Public Betrayal & Abandonment</h3>
+        <p class="text-xs text-[#D4D4D8] leading-relaxed mb-3">Self-contained wedding rejection requiring zero viewer backstory. Directly targets 3-second hook retention on social feeds.</p>
+        <button onclick="filterByArchetype('Altar Betrayal & Public Humiliation')" class="text-xs text-[#EC1C24] hover:text-white font-bold flex items-center gap-1 transition">
+          Filter Betrayal Promos <i class="fa-solid fa-arrow-right text-[10px]"></i>
+        </button>
+      </div>
+
+      <div class="bg-[#161616] border border-[#2C2C2C] rounded-xl p-5 relative hover:border-[#3A3838] transition">
+        <div class="text-[#F59E0B] text-xs font-bold uppercase tracking-wider mb-1 flex items-center gap-1.5">
+          <i class="fa-solid fa-bolt text-[10px]"></i> Phase 2: Days 3–5 (Mid-Funnel)
+        </div>
+        <h3 class="text-sm font-bold text-white mb-1.5">High-Stakes Moral Dilemma</h3>
+        <p class="text-xs text-[#D4D4D8] leading-relaxed mb-3">The blackthorn briar trial and dungeon confrontation. Severe physical consequences that motivate viewers to continue the series.</p>
+        <button onclick="filterByArchetype('The Barehanded Briar Trial')" class="text-xs text-[#F59E0B] hover:text-white font-bold flex items-center gap-1 transition">
+          Filter Briar Trial Promos <i class="fa-solid fa-arrow-right text-[10px]"></i>
+        </button>
+      </div>
+
+      <div class="bg-[#161616] border border-[#2C2C2C] rounded-xl p-5 relative hover:border-[#3A3838] transition">
+        <div class="text-[#EC1C24] text-xs font-bold uppercase tracking-wider mb-1 flex items-center gap-1.5">
+          <i class="fa-solid fa-crown text-[10px]"></i> Phase 3: Days 6–8 (Conversion)
+        </div>
+        <h3 class="text-sm font-bold text-white mb-1.5">Climax & Ducal Identity Reveal</h3>
+        <p class="text-xs text-[#D4D4D8] leading-relaxed mb-3">Cathedral entrance breach and unmasking of the true Duke. Core dramatic resolution aligned with paid coin gates.</p>
+        <button onclick="filterByArchetype('The Secret Duke / Royal Retribution')" class="text-xs text-[#EC1C24] hover:text-white font-bold flex items-center gap-1 transition">
+          Filter Ducal Reveal <i class="fa-solid fa-arrow-right text-[10px]"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Filters & Search Bar -->
+    <div class="bg-[#161616] border border-[#2C2C2C] rounded-xl p-4 mb-6 flex flex-wrap items-center justify-between gap-4">
+      <div class="flex flex-wrap items-center gap-3">
+        <!-- Search -->
+        <div class="relative w-64">
+          <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-[#8E8E93] text-xs"></i>
+          <input type="text" id="search-input" oninput="renderPromos()" placeholder="Search by episode, character, or dialogue..." 
+                 class="w-full bg-[#0A0A0A] border border-[#2C2C2C] rounded-lg pl-8 pr-3 py-2 text-xs text-white placeholder-[#8E8E93] focus:outline-none focus:border-[#EC1C24]">
+        </div>
+
+        <!-- Tier Filter -->
+        <select id="tier-filter" onchange="renderPromos()" class="bg-[#0A0A0A] border border-[#2C2C2C] rounded-lg px-3 py-2 text-xs text-[#D4D4D8] focus:outline-none focus:border-[#EC1C24]">
+          <option value="ALL">All Tiers (148)</option>
+          <option value="TIER_S">Tier S (Score ≥ 90)</option>
+          <option value="TIER_A">Tier A (Score 80–89)</option>
+          <option value="TIER_B">Tier B (Score 70–79)</option>
+          <option value="TIER_C">Tier C (Score &lt; 70)</option>
+        </select>
+
+        <!-- Archetype Filter -->
+        <select id="archetype-filter" onchange="renderPromos()" class="bg-[#0A0A0A] border border-[#2C2C2C] rounded-lg px-3 py-2 text-xs text-[#D4D4D8] focus:outline-none focus:border-[#EC1C24]">
+          <option value="ALL">All Archetypes</option>
+          <option value="The Secret Duke / Royal Retribution">Secret Duke Retribution</option>
+          <option value="Altar Betrayal & Public Humiliation">Altar Betrayal & Humiliation</option>
+          <option value="The Barehanded Briar Trial">The Barehanded Briar Trial</option>
+          <option value="The Mysterious Warrior Proposal">Warrior Proposal</option>
+          <option value="Dungeon Torture & Unyielding Defiance">Dungeon Torture</option>
+        </select>
+
+        <!-- Multi-segment filter -->
+        <button id="multi-toggle" onclick="toggleMultiOnly()" class="px-3.5 py-2 rounded-lg text-xs font-semibold bg-[#0A0A0A] border border-[#2C2C2C] text-[#D4D4D8] hover:text-white transition">
+          <i class="fa-solid fa-film text-[10px] mr-1"></i> Multi-Segment Only
+        </button>
+      </div>
+
+      <!-- Quality Checker Modal Trigger -->
+      <button onclick="openQualityModal()" class="px-3.5 py-2 rounded-lg text-xs font-bold bg-[#F59E0B]/10 border border-[#F59E0B]/30 text-[#F59E0B] hover:bg-[#F59E0B]/20 transition flex items-center gap-1.5">
+        <i class="fa-solid fa-triangle-exclamation"></i> Quality Audit & Failure Analysis
+      </button>
+    </div>
+
+    <!-- Promo Cards Grid -->
+    <div id="promos-container" class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+      <!-- Injected via JavaScript -->
+    </div>
+
+  </main>
+
+  <!-- Screenplay Excerpt Modal -->
+  <div id="script-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-[#161616] border border-[#2C2C2C] rounded-xl w-full max-w-3xl max-h-[85vh] flex flex-col shadow-2xl overflow-hidden">
+      <div class="px-6 py-4 border-b border-[#2C2C2C] flex items-center justify-between">
+        <div>
+          <h3 id="modal-title" class="font-bold text-white text-base">Screenplay Transcript</h3>
+          <p id="modal-subtitle" class="text-xs text-[#8E8E93] mono mt-0.5"></p>
+        </div>
+        <button onclick="closeScriptModal()" class="text-[#8E8E93] hover:text-white text-base">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="p-6 overflow-y-auto space-y-2 mono text-xs bg-[#0A0A0A]" id="modal-content">
+        <!-- Lines injected here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Quality Audit Modal -->
+  <div id="quality-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-[#161616] border border-[#2C2C2C] rounded-xl w-full max-w-4xl max-h-[85vh] flex flex-col shadow-2xl overflow-hidden">
+      <div class="px-6 py-4 border-b border-[#2C2C2C] flex items-center justify-between">
+        <div class="flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-lg bg-[#F59E0B]/15 text-[#F59E0B] flex items-center justify-center">
+            <i class="fa-solid fa-triangle-exclamation text-sm"></i>
+          </div>
+          <div>
+            <h3 class="font-bold text-white text-base">Quality Audit & Algorithmic Failure Analysis</h3>
+            <p class="text-xs text-[#8E8E93]">Systematic diagnostic of edge cases where automated detection requires editorial adjustment</p>
+          </div>
+        </div>
+        <button onclick="closeQualityModal()" class="text-[#8E8E93] hover:text-white text-base">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="p-6 overflow-y-auto space-y-5 text-xs bg-[#0A0A0A]" id="quality-content">
+        <!-- Quality content loaded here -->
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let allPromos = [];
+    let qualityReport = null;
+    let multiOnly = false;
+
+    async function loadData() {
+      try {
+        const res = await fetch('/data/promos_ranked.json');
+        allPromos = await res.json();
+        
+        const qRes = await fetch('/data/quality_check_report.json');
+        qualityReport = await qRes.json();
+
+        document.getElementById('metric-total').textContent = allPromos.length;
+        renderPromos();
+      } catch (e) {
+        console.error('Failed to load datasets:', e);
+      }
+    }
+
+    function toggleMultiOnly() {
+      multiOnly = !multiOnly;
+      const btn = document.getElementById('multi-toggle');
+      if (multiOnly) {
+        btn.classList.add('bg-[#EC1C24]', 'text-white', 'border-[#EC1C24]');
+        btn.classList.remove('bg-[#0A0A0A]', 'text-[#D4D4D8]');
+      } else {
+        btn.classList.remove('bg-[#EC1C24]', 'text-white', 'border-[#EC1C24]');
+        btn.classList.add('bg-[#0A0A0A]', 'text-[#D4D4D8]');
+      }
+      renderPromos();
+    }
+
+    function filterByArchetype(archetype) {
+      document.getElementById('archetype-filter').value = archetype;
+      renderPromos();
+    }
+
+    function renderPromos() {
+      const search = document.getElementById('search-input').value.toLowerCase();
+      const tier = document.getElementById('tier-filter').value;
+      const archetype = document.getElementById('archetype-filter').value;
+
+      const filtered = allPromos.filter(p => {
+        if (multiOnly && p.segments.length <= 1) return false;
+
+        const score = p.scores.total;
+        if (tier === 'TIER_S' && score < 90) return false;
+        if (tier === 'TIER_A' && (score < 80 || score >= 90)) return false;
+        if (tier === 'TIER_B' && (score < 70 || score >= 80)) return false;
+        if (tier === 'TIER_C' && score >= 70) return false;
+
+        if (archetype !== 'ALL' && p.archetype !== archetype) return false;
+
+        if (search) {
+          const hay = `${p.episode} ${p.hook} ${p.cliffhanger} ${p.whyItWorks} ${p.archetype} ${p.scriptExcerpt || ''}`.toLowerCase();
+          if (!hay.includes(search)) return false;
+        }
+
+        return true;
+      });
+
+      const container = document.getElementById('promos-container');
+      container.innerHTML = '';
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div class="col-span-full py-16 text-center text-[#8E8E93]">
+            <i class="fa-regular fa-folder-open text-3xl mb-2"></i>
+            <p class="text-xs">No promos match the selected filter criteria.</p>
+          </div>
+        `;
+        return;
+      }
+
+      filtered.forEach(p => {
+        const isTierS = p.scores.total >= 90;
+        const isTierA = p.scores.total >= 80 && p.scores.total < 90;
+
+        let badgeColor = 'bg-[#202020] text-[#8E8E93] border-[#2C2C2C]';
+        if (isTierS) badgeColor = 'bg-[#EC1C24]/15 text-[#EC1C24] border-[#EC1C24]/35 font-bold';
+        else if (isTierA) badgeColor = 'bg-[#F59E0B]/15 text-[#F59E0B] border-[#F59E0B]/30 font-semibold';
+
+        const segmentBadges = p.segments.map(s => `
+          <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-[#0A0A0A] border border-[#2C2C2C] text-[#D4D4D8] mono text-[11px]">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#EC1C24]"></span>
+            Ep ${s.episode} (${s.start}–${s.end}) [${s.duration}]
+          </span>
+        `).join('');
+
+        const card = document.createElement('div');
+        card.className = 'bg-[#161616] border border-[#2C2C2C] rounded-xl p-5 hover:border-[#3A3838] transition flex flex-col justify-between';
+        
+        card.innerHTML = `
+          <div>
+            <!-- Header Row -->
+            <div class="flex items-start justify-between gap-3 mb-2.5">
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-bold mono px-2 py-0.5 rounded bg-[#202020] text-white">#${p.rank}</span>
+                <span class="text-xs px-2 py-0.5 rounded border ${badgeColor}">
+                  Score ${p.scores.total}/100
+                </span>
+                <span class="text-xs font-bold text-white">${p.episode}</span>
+              </div>
+              <span class="mono text-xs text-[#F59E0B] font-bold bg-[#F59E0B]/10 px-2 py-0.5 rounded border border-[#F59E0B]/20">
+                ${p.totalDuration}
+              </span>
+            </div>
+
+            <!-- Archetype & Phase -->
+            <div class="flex flex-wrap items-center gap-2 mb-3">
+              <span class="text-[11px] font-semibold text-white bg-[#202020] border border-[#2C2C2C] px-2 py-0.5 rounded">
+                ${p.archetype}
+              </span>
+              <span class="text-[11px] text-[#8E8E93]">
+                ${p.postingPhase.split(':')[0]}
+              </span>
+            </div>
+
+            <!-- Segments -->
+            <div class="flex flex-wrap gap-1.5 mb-3.5">
+              ${segmentBadges}
+            </div>
+
+            <!-- Hook & Cliffhanger Blocks -->
+            <div class="space-y-2.5 mb-3.5 text-xs">
+              <div class="p-3 rounded-lg bg-[#0A0A0A] border border-[#2C2C2C]">
+                <div class="text-[10px] font-bold uppercase tracking-wider text-[#EC1C24] mb-1 flex items-center gap-1">
+                  Hook (First 3 Seconds)
+                </div>
+                <p class="text-white leading-relaxed font-normal">${p.hook}</p>
+              </div>
+
+              <div class="p-3 rounded-lg bg-[#0A0A0A] border border-[#2C2C2C]">
+                <div class="text-[10px] font-bold uppercase tracking-wider text-[#F59E0B] mb-1 flex items-center gap-1">
+                  Cliffhanger Cut-Point
+                </div>
+                <p class="text-white leading-relaxed font-normal">${p.cliffhanger}</p>
+              </div>
+            </div>
+
+            <!-- Marketing Rationale -->
+            <div class="p-3 rounded-lg bg-[#202020] border border-[#2C2C2C] text-xs mb-3.5">
+              <div class="text-[10px] font-bold uppercase tracking-wider text-[#8E8E93] mb-1">
+                Editorial Rationale
+              </div>
+              <p class="text-[#D4D4D8] leading-relaxed">${p.whyItWorks}</p>
+            </div>
+          </div>
+
+          <!-- Footer Actions & Scores -->
+          <div class="pt-3 border-t border-[#2C2C2C] flex items-center justify-between text-xs">
+            <div class="flex items-center gap-3 mono text-[11px] text-[#8E8E93]">
+              <span>Hook: <b class="text-white font-medium">${p.scores.hook}</b></span>
+              <span>Cliff: <b class="text-white font-medium">${p.scores.cliffhanger}</b></span>
+              <span>Coherence: <b class="text-white font-medium">${p.scores.coherence}</b></span>
+            </div>
+            <button onclick="openScriptModal('${p.promoId}')" class="text-[#EC1C24] hover:text-white font-bold flex items-center gap-1 transition">
+              Read Script Excerpt <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </button>
+          </div>
+        `;
+
+        container.appendChild(card);
+      });
+    }
+
+    function openScriptModal(promoId) {
+      const p = allPromos.find(x => x.promoId === promoId);
+      if (!p) return;
+
+      document.getElementById('modal-title').textContent = `${p.episode} — Promo Excerpt (${p.totalDuration})`;
+      document.getElementById('modal-subtitle').textContent = `Rank #${p.rank} | ${p.archetype} | Score: ${p.scores.total}/100`;
+
+      const content = document.getElementById('modal-content');
+      content.innerHTML = '';
+
+      const lines = (p.scriptExcerpt || 'No screenplay excerpt attached.').split('\n');
+      lines.forEach(line => {
+        const div = document.createElement('div');
+        div.className = 'py-0.5 border-b border-[#1E1E1E]';
+
+        if (line.startsWith('===')) {
+          div.className += ' text-[#EC1C24] font-bold py-1.5 mt-2';
+        } else if (line.includes('ACTION')) {
+          div.className += ' text-white font-medium';
+        } else if (line.includes('CAMERA')) {
+          div.className += ' text-[#8E8E93] italic';
+        } else if (line.includes('SOUND FX')) {
+          div.className += ' text-[#F59E0B] font-bold';
+        } else {
+          div.className += ' text-[#D4D4D8]';
+        }
+        div.textContent = line;
+        content.appendChild(div);
+      });
+
+      document.getElementById('script-modal').classList.remove('hidden');
+    }
+
+    function closeScriptModal() {
+      document.getElementById('script-modal').classList.add('hidden');
+    }
+
+    function openQualityModal() {
+      if (!qualityReport) return;
+
+      const container = document.getElementById('quality-content');
+      container.innerHTML = `
+        <!-- Failure Mode 1 -->
+        <div class="p-4 rounded-lg bg-[#161616] border border-[#2C2C2C] space-y-1.5">
+          <div class="flex items-center justify-between">
+            <h4 class="font-bold text-[#F59E0B] text-xs uppercase tracking-wider">
+              1. The False Action Hook (Visual vs. Text Disconnect)
+            </h4>
+            <span class="px-2 py-0.5 rounded bg-[#F59E0B]/15 text-[#F59E0B] font-bold text-[10px]">High Priority</span>
+          </div>
+          <p class="text-white">
+            <b>The Defect:</b> Dialogue contains intense conflict statements ("You betrayed me"), but camera direction shows characters seated drinking tea with minimal motion.
+          </p>
+          <p class="text-[#D4D4D8]">
+            <b>Why It Fails:</b> Keyword scanners award high hook points based on verbal confrontation, but social media viewers swipe away in &lt;1.2s without immediate physical movement.
+          </p>
+          <div class="bg-[#202020] p-2.5 rounded border border-[#2C2C2C] text-white">
+            <span class="text-[#EC1C24] font-bold">Remedy:</span> Camera shot classification discounts static wide shots, requiring candidate start points to snap to physical action verbs or tight close-up pushes.
+          </div>
+        </div>
+
+        <!-- Failure Mode 2 -->
+        <div class="p-4 rounded-lg bg-[#161616] border border-[#2C2C2C] space-y-1.5">
+          <div class="flex items-center justify-between">
+            <h4 class="font-bold text-[#F59E0B] text-xs uppercase tracking-wider">
+              2. Context-Blind Lore Traps
+            </h4>
+            <span class="px-2 py-0.5 rounded bg-[#F59E0B]/15 text-[#F59E0B] font-bold text-[10px]">Moderate Priority</span>
+          </div>
+          <p class="text-white">
+            <b>The Defect:</b> Scenes where secondary characters argue over legal deeds, Father Thomas's petition, or Lord Sterling's couriers.
+          </p>
+          <p class="text-[#D4D4D8]">
+            <b>Why It Fails:</b> While dramatic to a binge-viewer at Episode 30, it is unfamiliar jargon to a cold scroller and generates zero immediate engagement.
+          </p>
+          <div class="bg-[#202020] p-2.5 rounded border border-[#2C2C2C] text-white">
+            <span class="text-[#EC1C24] font-bold">Remedy:</span> A Standalone Coherence filter penalizes secondary institutional lore, reserving these clips for retargeting rather than cold acquisition spend.
+          </div>
+        </div>
+
+        <!-- Failure Mode 3 -->
+        <div class="p-4 rounded-lg bg-[#161616] border border-[#2C2C2C] space-y-1.5">
+          <div class="flex items-center justify-between">
+            <h4 class="font-bold text-[#F59E0B] text-xs uppercase tracking-wider">
+              3. Sub-Second Acoustic Decay Truncation
+            </h4>
+            <span class="px-2 py-0.5 rounded bg-[#F59E0B]/15 text-[#F59E0B] font-bold text-[10px]">Technical Buffer</span>
+          </div>
+          <p class="text-white">
+            <b>The Defect:</b> Cutting strictly at screenplay millisecond timestamps risks clipping lingering vocal reverberations, actor breaths, or musical decays.
+          </p>
+          <div class="bg-[#202020] p-2.5 rounded border border-[#2C2C2C] text-white">
+            <span class="text-[#EC1C24] font-bold">Remedy:</span> Exported timeline manifests inject an automated +0.40s audio safety buffer during video timeline rendering.
+          </div>
+        </div>
+
+        <!-- Failure Mode 4 -->
+        <div class="p-4 rounded-lg bg-[#161616] border border-[#2C2C2C] space-y-1.5">
+          <div class="flex items-center justify-between">
+            <h4 class="font-bold text-[#F59E0B] text-xs uppercase tracking-wider">
+              4. Disjoint Cross-Scene Jumps in Multi-Segment Stitching
+            </h4>
+            <span class="px-2 py-0.5 rounded bg-[#F59E0B]/15 text-[#F59E0B] font-bold text-[10px]">Editorial Continuity</span>
+          </div>
+          <p class="text-white">
+            <b>The Defect:</b> Combining non-contiguous moments across separate scenes can appear disjointed without an establishing transition.
+          </p>
+          <div class="bg-[#202020] p-2.5 rounded border border-[#2C2C2C] text-white">
+            <span class="text-[#EC1C24] font-bold">Remedy:</span> Multi-segment engine enforces causal continuity (e.g. cathedral blast followed by entrance through the smoke) and specifies a 0.2s transitional sound marker.
+          </div>
+        </div>
+      `;
+
+      document.getElementById('quality-modal').classList.remove('hidden');
+    }
+
+    function closeQualityModal() {
+      document.getElementById('quality-modal').classList.add('hidden');
+    }
+
+    function downloadCSV() {
+      window.location.href = '/data/promos_ranked.csv';
+    }
+
+    window.onload = loadData;
+  </script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+{
+  "totalEvaluated": 148,
+  "tierBreakdown": {
+    "tierS_ViralGold": 5,
+    "tierA_HighEngagement": 7,
+    "tierB_ContextDependent": 31,
+    "tierC_NeedsRecut": 105
+  },
+  "failureModesIdentified": {
+    "falseActionHooks": [
+      {
+        "promoId": "PROMO_EP038_16_48",
+        "episode": "Episode 38",
+        "score": 88,
+        "hook": "JULIANA: \"Why?\"",
+        "issue": "Dialogue sounds intense, but physical staging is static (seated conversation). Low scroll-stopping power on TikTok.",
+        "recommendation": "Human editor must cut straight to the tight close-up punch-in at +1.8s rather than the opening wide shot."
+      },
+      {
+        "promoId": "PROMO_EP030_74_122",
+        "episode": "Episode 30",
+        "score": 78,
+        "hook": "ELDER NOBLEMAN: \"Give those facts to a magistrate in the right order, and she becomes a poisoner.\"",
+        "issue": "Dialogue sounds intense, but physical staging is static (seated conversation). Low scroll-stopping power on TikTok.",
+        "recommendation": "Human editor must cut straight to the tight close-up punch-in at +1.8s rather than the opening wide shot."
+      },
+      {
+        "promoId": "PROMO_EP001_57_98",
+        "episode": "Episode 1",
+        "score": 73,
+        "hook": "LADY JULIANA: \"You let me believe I was walking toward my husband!\"",
+        "issue": "Dialogue sounds intense, but physical staging is static (seated conversation). Low scroll-stopping power on TikTok.",
+        "recommendation": "Human editor must cut straight to the tight close-up punch-in at +1.8s rather than the opening wide shot."
+      },
+      {
+        "promoId": "PROMO_EP002_0_37",
+        "episode": "Episode 2",
+        "score": 73,
+        "hook": "THE FORMER GROOM: \"I cannot marry you, Juliana.\"",
+        "issue": "Dialogue sounds intense, but physical staging is static (seated conversation). Low scroll-stopping power on TikTok.",
+        "recommendation": "Human editor must cut straight to the tight close-up punch-in at +1.8s rather than the opening wide shot."
+      },
+      {
+        "promoId": "PROMO_EP001_16_74",
+        "episode": "Episode 1",
+        "score": 71,
+        "hook": "LADY JULIANA: \"Gerald is waiting for me.\"",
+        "issue": "Dialogue sounds intense, but physical staging is static (seated conversation). Low scroll-stopping power on TikTok.",
+        "recommendation": "Human editor must cut straight to the tight close-up punch-in at +1.8s rather than the opening wide shot."
+      }
+    ],
+    "loreTraps": [
+      {
+        "promoId": "PROMO_EP050_31_59",
+        "episode": "Episode 50",
+        "score": 49,
+        "issue": "Relies on complex institutional / church lore that confuses cold viewers who have never seen earlier episodes.",
+        "recommendation": "Reserve this promo for mid-season retargeting; do not run as Top-of-Funnel acquisition ad."
+      },
+      {
+        "promoId": "PROMO_EP049_28_77",
+        "episode": "Episode 49",
+        "score": 47,
+        "issue": "Relies on complex institutional / church lore that confuses cold viewers who have never seen earlier episodes.",
+        "recommendation": "Reserve this promo for mid-season retargeting; do not run as Top-of-Funnel acquisition ad."
+      },
+      {
+        "promoId": "PROMO_EP049_20_47",
+        "episode": "Episode 49",
+        "score": 38,
+        "issue": "Relies on complex institutional / church lore that confuses cold viewers who have never seen earlier episodes.",
+        "recommendation": "Reserve this promo for mid-season retargeting; do not run as Top-of-Funnel acquisition ad."
+      }
+    ],
+    "acousticBoundaryClipping": [
+      {
+        "promoId": "PROMO_EP030_74_122",
+        "episode": "Episode 30",
+        "segmentIndex": 1,
+        "timestamp": "02:01.50",
+        "issue": "Abrupt timestamp boundary risk: cut point aligns with written text end but risks clipping lingering vocal decay or actor breath.",
+        "recommendation": "Add +0.40s audio pad buffer during automated NLE / FFmpeg timeline rendering."
+      },
+      {
+        "promoId": "PROMO_EP004_0_36",
+        "episode": "Episode 4",
+        "segmentIndex": 1,
+        "timestamp": "00:36.00",
+        "issue": "Abrupt timestamp boundary risk: cut point aligns with written text end but risks clipping lingering vocal decay or actor breath.",
+        "recommendation": "Add +0.40s audio pad buffer during automated NLE / FFmpeg timeline rendering."
+      },
+      {
+        "promoId": "PROMO_EP028_13_54",
+        "episode": "Episode 28",
+        "segmentIndex": 1,
+        "timestamp": "00:53.60",
+        "issue": "Abrupt timestamp boundary risk: cut point aligns with written text end but risks clipping lingering vocal decay or actor breath.",
+        "recommendation": "Add +0.40s audio pad buffer during automated NLE / FFmpeg timeline rendering."
+      },
+      {
+        "promoId": "PROMO_EP044_24_63",
+        "episode": "Episode 44",
+        "segmentIndex": 1,
+        "timestamp": "01:03.40",
+        "issue": "Abrupt timestamp boundary risk: cut point aligns with written text end but risks clipping lingering vocal decay or actor breath.",
+        "recommendation": "Add +0.40s audio pad buffer during automated NLE / FFmpeg timeline rendering."
+      },
+      {
+        "promoId": "PROMO_EP036_104_142",
+        "episode": "Episode 36",
+        "segmentIndex": 1,
+        "timestamp": "02:21.50",
+        "issue": "Abrupt timestamp boundary risk: cut point aligns with written text end but risks clipping lingering vocal decay or actor breath.",
+        "recommendation": "Add +0.40s audio pad buffer during automated NLE / FFmpeg timeline rendering."
+      }
+    ],
+    "disjointJumpCuts": []
+  },
+  "editorActionItems": [
+    "Always verify visual action in 0-3s window: discard candidates where actors are stationary or seated.",
+    "Apply +0.4s audio decay padding on all automated cuts to prevent clipped syllables.",
+    "Keep Top-of-Funnel ads strictly focused on the 3 core archetypes: Altar Betrayal, Secret Duke Retribution, and Briar Trial.",
+    "Run human review on Tier B (70-79) candidates before pushing to paid TikTok / Meta ad spend."
+  ]
+}
