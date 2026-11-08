@@ -82,6 +82,7 @@
         <div class="bg-[#202020] px-3 py-1.5 rounded-lg border border-[#2C2C2C]">
           <span class="text-[#8E8E93]">Duration Target:</span> <span class="text-[#F59E0B] font-semibold">20s–60s</span>
         </div>
+        <a href="./Kuku_Problem_1_Solution_Doc.pdf" target="_blank" class="bg-[#202020] hover:bg-[#2C2C2C] text-[#D4D4D8] hover:text-white border border-[#2C2C2C] font-semibold px-3 py-1.5 rounded-lg transition flex items-center gap-1.5"><i class="fa-solid fa-file-pdf text-[#EC1C24] text-xs"></i> Solution PDF</a>
         <button onclick="downloadCSV()" class="bg-[#EC1C24] hover:bg-[#D4161D] text-white font-semibold px-4 py-1.5 rounded-lg transition flex items-center gap-1.5 shadow-sm shadow-[#EC1C24]/25">
           <i class="fa-solid fa-download text-xs"></i> Export CSV
         </button>
@@ -222,18 +223,39 @@
     let qualityReport = null;
     let multiOnly = false;
 
+    async function fetchJsonWithFallback(filename) {
+      const candidates = [
+        './data/' + filename,
+        'data/' + filename,
+        '/data/' + filename,
+        '../data/' + filename
+      ];
+      for (const url of candidates) {
+        try {
+          const res = await fetch(url);
+          if (res.ok) return await res.json();
+        } catch (_) {}
+      }
+      throw new Error('Failed to load ' + filename);
+    }
+
     async function loadData() {
       try {
-        const res = await fetch('./data/promos_ranked.json');
-        allPromos = await res.json();
-        
-        const qRes = await fetch('./data/quality_check_report.json');
-        qualityReport = await qRes.json();
+        allPromos = await fetchJsonWithFallback('promos_ranked.json');
+        try {
+          qualityReport = await fetchJsonWithFallback('quality_check_report.json');
+        } catch (qe) {
+          console.warn('Quality report optional load error:', qe);
+        }
 
         document.getElementById('metric-total').textContent = allPromos.length;
         renderPromos();
       } catch (e) {
         console.error('Failed to load datasets:', e);
+        const grid = document.getElementById('promo-grid');
+        if (grid) {
+          grid.innerHTML = '<div class="col-span-full bg-[#161616] border border-[#EC1C24]/30 rounded-xl p-8 text-center"><i class="fa-solid fa-triangle-exclamation text-[#EC1C24] text-3xl mb-3"></i><h3 class="text-lg font-bold text-white mb-2">Dataset Initializing or Path Mismatch</h3><p class="text-sm text-[#8E8E93] max-w-md mx-auto mb-4">Could not load <code>data/promos_ranked.json</code>. If running locally via file://, please serve via an HTTP server (e.g. <code>npm start</code>) due to browser CORS policies.</p></div>';
+        }
       }
     }
 

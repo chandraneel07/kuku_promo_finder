@@ -23,13 +23,12 @@ ensureDir(PUBLIC_DIR);
 ensureDir(path.join(PUBLIC_DIR, 'data'));
 ensureDir(DOCS_DIR);
 ensureDir(path.join(DOCS_DIR, 'data'));
+ensureDir(path.join(BASE_DIR, 'data'));
 
 // 1. Copy web/index.html
 const indexSrc = path.join(BASE_DIR, 'web', 'index.html');
 copyFile(indexSrc, path.join(PUBLIC_DIR, 'index.html'));
 copyFile(indexSrc, path.join(DOCS_DIR, 'index.html'));
-
-// Also copy index.html to root so any static server pointing to root works directly
 copyFile(indexSrc, path.join(BASE_DIR, 'index.html'));
 
 // 2. Copy data files
@@ -44,18 +43,23 @@ dataFiles.forEach(f => {
   const src = path.join(BASE_DIR, 'outputs', f);
   copyFile(src, path.join(PUBLIC_DIR, 'data', f));
   copyFile(src, path.join(DOCS_DIR, 'data', f));
+  copyFile(src, path.join(BASE_DIR, 'data', f));
 });
 
-// Also create a root data/ directory for static servers opening root index.html
+// Also create a data_static/ directory for static servers opening root index.html
 ensureDir(path.join(BASE_DIR, 'data_static'));
 ensureDir(path.join(BASE_DIR, 'data_static', 'data'));
 dataFiles.forEach(f => {
   copyFile(path.join(BASE_DIR, 'outputs', f), path.join(BASE_DIR, 'data_static', 'data', f));
 });
 
-// 3. Copy PDF
+// 3. Copy PDF and HTML solution doc
 const pdfSrc = path.join(BASE_DIR, 'Kuku_Problem_1_Solution_Doc.pdf');
 copyFile(pdfSrc, path.join(PUBLIC_DIR, 'Kuku_Problem_1_Solution_Doc.pdf'));
 copyFile(pdfSrc, path.join(DOCS_DIR, 'Kuku_Problem_1_Solution_Doc.pdf'));
+
+const docSrc = path.join(BASE_DIR, 'solution_doc.html');
+copyFile(docSrc, path.join(PUBLIC_DIR, 'solution_doc.html'));
+copyFile(docSrc, path.join(DOCS_DIR, 'solution_doc.html'));
 
 console.log('\nDeployment assets ready in public/, docs/, and root!');
