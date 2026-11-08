@@ -402,80 +402,49 @@
         </div>
       </div>
 
-      <!-- Section 5: AI Reflection & Prototype Walkthrough -->
+      <!-- Section 5: AI Tools Used & Honest Reflection -->
       <h2>5. AI Tools Used & Honest Reflection (Where AI Got It Wrong)</h2>
       <div class="box">
-        <p style="font-size:7.2pt;">
-          <b>AI Tools Leveraged:</b> Gemini 1.5 Pro / GPT-4o for rapid script parsing regex construction, marketing archetype ontology formulation, and heuristic weighting calibration.
+        <p style="font-size:7.4pt;">
+          <b>AI Tools Leveraged:</b> Gemini 1.5 Pro and GPT-4o were utilized for rapid screenplay regex parsing development, marketing archetype ontology formulation, and heuristic weighting calibration.
         </p>
-        <p style="font-size:7.2pt; margin-top:2px;">
-          <b>One Critical Place Where AI Got It Wrong:</b> When given raw screenplay text and prompted to <i>"find the best 60-second promos"</i>, the LLM repeatedly failed on two fronts:
+        <p style="font-size:7.4pt; margin-top:3px;">
+          <b>Critical Failure Modes in Brute-Force Prompting:</b> When given raw screenplay text and prompted to <i>"extract the best 60-second promos"</i>, generic LLMs consistently exhibited severe flaws:
         </p>
-        <ul style="font-size:7.1pt; color:#334155;">
-          <li><b>Hallucinated Timestamps:</b> The LLM generated fictitious timestamps (e.g., cutting from 00:45 to 01:55 without calculating actual elapsed segment duration), producing clips that were either 14 seconds or 85 seconds long, violating the strict 20–60s boundary.</li>
-          <li><b>Sentence Mid-Utterance Slicing:</b> It selected arbitrary cut points based on semantic meaning while cutting speakers off mid-word.</li>
-          <li><b>Architectural Solution:</b> We stripped the LLM of timestamp calculation authority. Timestamp boundaries and duration math were kept 100% deterministic in code, using AI solely for qualitative semantic scoring and virality categorization.</li>
+        <ul style="font-size:7.2pt; color:#334155; margin-top:2px;">
+          <li><b>Hallucinated Timestamps & Drift:</b> LLMs hallucinated non-existent cut points or skipped script lines, yielding clips that varied from 14s to 85s and broke strict duration constraints.</li>
+          <li><b>Sentence Mid-Utterance Slicing:</b> Arbitrary semantic cuts severed dialogue mid-syllable, destroying audio and performance flow.</li>
+          <li><b>Architectural Solution:</b> We strictly stripped the LLM of timestamp calculation authority. Boundaries and durations are computed 100% deterministically in code, reserving AI heuristics purely for qualitative semantic scoring and virality archetype classification.</li>
         </ul>
       </div>
 
-      <!-- Section 6: Prototype Architecture & Deliverables -->
+      <!-- Section 6: Prototype Architecture & Submission Deliverables -->
       <h2>6. Prototype Link & Submission Deliverables</h2>
       <div class="grid-2">
         <div class="box" style="border-left: 3px solid #EC1C24;">
-          <div style="font-family:'Figtree',sans-serif; font-weight:700; font-size:7.5pt; color:#0A0A0A;">PROTOTYPE CODEBASE & RUN STEPS</div>
-          <p style="font-size:7pt; color:#475569;">
-            Full GitHub-ready repository with complete source code, tests, and web UI:
+          <div style="font-family:'Figtree',sans-serif; font-weight:700; font-size:7.8pt; color:#0A0A0A;">PRODUCTION REPOSITORY & RUN COMMANDS</div>
+          <p style="font-size:7.3pt; color:#475569; margin-top:2px;">
+            <b>GitHub Repository:</b> <code style="color:#EC1C24;">https://github.com/chandraneel07/kuku_promo_finder</code>
           </p>
-          <ul style="font-size:6.9pt; font-family:'JetBrains Mono', monospace; color:#0A0A0A;">
-            <li><code>git clone &lt;repo-url&gt; &amp;&amp; cd kuku_promo_finder</code></li>
-            <li><code>node run_pipeline.js</code> (Runs full pipeline on 50 eps in 0.75s)</li>
-            <li><code>node server.js</code> (Launches web UI at http://localhost:3000)</li>
+          <ul style="font-size:7.1pt; font-family:'JetBrains Mono', monospace; color:#0A0A0A; margin-top:3px;">
+            <li><code>git clone https://github.com/chandraneel07/kuku_promo_finder.git</code></li>
+            <li><code>npm run pipeline</code> (Parses 50 episodes in 0.75s, outputs 148 ranked promos)</li>
+            <li><code>npm start</code> (Runs interactive web studio at http://localhost:3000)</li>
           </ul>
+          <p style="font-size:7.1pt; color:#64748B; margin-top:4px;">
+            Deployed live on Vercel with mobile/desktop responsiveness, dataset filtering, and full CSV export capability.
+          </p>
         </div>
         <div class="box" style="border-left: 3px solid #161616;">
-          <div style="font-family:'Figtree',sans-serif; font-weight:700; font-size:7.5pt; color:#0A0A0A;">GENERATED RAW OUTPUTS PACK (FULL 50 EPS)</div>
-          <ul style="font-size:7pt; color:#475569;">
-            <li><code>outputs/promos_ranked.csv</code>: Spreadsheet-ready table with timestamps, ordered segments, hooks, and rationales for all promos.</li>
-            <li><code>outputs/promos_ranked.json</code>: Complete structured metadata.</li>
-            <li><code>outputs/quality_check_report.json</code>: Automated diagnostic audit.</li>
-            <li><code>outputs/promos_summary.md</code>: Executive markdown catalog.</li>
+          <div style="font-family:'Figtree',sans-serif; font-weight:700; font-size:7.8pt; color:#0A0A0A;">GENERATED RAW OUTPUTS PACK (ALL 50 EPISODES)</div>
+          <ul style="font-size:7.2pt; color:#475569; margin-top:2px;">
+            <li><code>outputs/promos_ranked.csv</code>: Complete spreadsheet table with millisecond timestamps, ordered scenes, duration, hooks, cliffhangers, and rationales for all 148 promos.</li>
+            <li><code>outputs/promos_ranked.json</code>: Machine-readable payload for automated NLE timeline injection.</li>
+            <li><code>outputs/quality_check_report.json</code>: Automated diagnostic audit across all 4 failure modes.</li>
+            <li><code>outputs/promos_summary.md</code>: Human-readable executive markdown catalog.</li>
           </ul>
         </div>
       </div>
-
-      <!-- Section 7: Walkthrough Video Guide -->
-      <h2>7. Walkthrough Video Guide (3-Minute Screen Recording Outline)</h2>
-      <table style="font-size:7.1pt;">
-        <thead>
-          <tr>
-            <th style="width: 15%;">Timestamp</th>
-            <th style="width: 25%;">Section</th>
-            <th style="width: 60%;">Demonstration & Commentary</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="mono">0:00 – 0:45</td>
-            <td><b>Pipeline Execution & Scale</b></td>
-            <td>Run <code>node run_pipeline.js</code> in terminal. Show 50 episodes (3,727 blocks) parsed and 148 promos ranked in 0.75s with zero hallucination.</td>
-          </tr>
-          <tr>
-            <td class="mono">0:45 – 1:45</td>
-            <td><b>Interactive Dashboard & Elite Promos</b></td>
-            <td>Open web dashboard. Demonstrate filtering Rank #1 (Ep 41 & 42 Explosion/Duke reveal) and Rank #2 (Altar Betrayal to Warrior proposal). Show synchronized script excerpt modal.</td>
-          </tr>
-          <tr>
-            <td class="mono">1:45 – 2:30</td>
-            <td><b>Quality Check & Failure Modes</b></td>
-            <td>Open Quality Diagnostic modal. Explain the False Action Hook, Lore Burden filter, and where human editors stay in the loop to adjust visual framing.</td>
-          </tr>
-          <tr>
-            <td class="mono">2:30 – 3:00</td>
-            <td><b>Unit Economics & Wrap-Up</b></td>
-            <td>Highlight the $0.04/show cost efficiency, two-stage funnel architecture, and instant scalability to Kuku's 100+ shows library.</td>
-          </tr>
-        </tbody>
-      </table>
     </div>
 
     <!-- Page 2 Footer -->
