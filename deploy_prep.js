@@ -62,4 +62,8 @@ const docSrc = path.join(BASE_DIR, 'solution_doc.html');
 copyFile(docSrc, path.join(PUBLIC_DIR, 'solution_doc.html'));
 copyFile(docSrc, path.join(DOCS_DIR, 'solution_doc.html'));
 
+const zipSrc = path.join(BASE_DIR, 'kuku_problem_1_outputs_pack.zip');
+copyFile(zipSrc, path.join(PUBLIC_DIR, 'kuku_problem_1_outputs_pack.zip'));
+copyFile(zipSrc, path.join(DOCS_DIR, 'kuku_problem_1_outputs_pack.zip'));
+
 console.log('\nDeployment assets ready in public/, docs/, and root!');
