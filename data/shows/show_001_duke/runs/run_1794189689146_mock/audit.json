@@ -1,0 +1,87 @@
+{
+  "summary": {
+    "total_audited": 2,
+    "pass_count": 1,
+    "warn_count": 1,
+    "fail_count": 0,
+    "pass_rate_pct": 50
+  },
+  "failure_counts_by_type": {
+    "false_action_hook": 1,
+    "lore_trap": 0,
+    "acoustic_truncation_risk": 0,
+    "mid_sentence_cut": 0,
+    "duration_violation": 0
+  },
+  "worst_10_picks": [
+    {
+      "id": "PROMO-001",
+      "rank": 1,
+      "episodes": [
+        1
+      ],
+      "duration": 23.6,
+      "total_score": 93.8,
+      "tier": "Tier S",
+      "audit_status": "warn",
+      "defect_reason": "Passes quality audit. Hook occurs in 0-3s, cut lands cleanly on speaker pause, and core conflict is self-evident.",
+      "suggested_fix": "Ensure +0.40s audio fade hold on terminal dialogue."
+    },
+    {
+      "id": "PROMO-002",
+      "rank": 2,
+      "episodes": [
+        41,
+        42
+      ],
+      "duration": 43.2,
+      "total_score": 93.8,
+      "tier": "Tier S",
+      "audit_status": "pass",
+      "defect_reason": "Passes quality audit. Hook occurs in 0-3s, cut lands cleanly on speaker pause, and core conflict is self-evident.",
+      "suggested_fix": "Ensure +0.40s audio fade hold on terminal dialogue."
+    }
+  ],
+  "detailed_audits": {
+    "PROMO-001": {
+      "promo_id": "PROMO-001",
+      "audit_status": "warn",
+      "flags": {
+        "false_action_hook": true,
+        "lore_trap": false,
+        "acoustic_truncation_risk": false,
+        "mid_sentence_cut": false,
+        "duration_violation": false
+      },
+      "critique": "Passes quality audit. Hook occurs in 0-3s, cut lands cleanly on speaker pause, and core conflict is self-evident.",
+      "recommendation": "Primary Top-of-Funnel candidate: Approved for paid social ad campaigns.",
+      "suggested_editorial_fix": "Ensure +0.40s audio fade hold on terminal dialogue.",
+      "tokens": {
+        "input": 400,
+        "output": 160,
+        "cost": 0.0001
+      },
+      "fromCache": false
+    },
+    "PROMO-002": {
+      "promo_id": "PROMO-002",
+      "audit_status": "pass",
+      "flags": {
+        "false_action_hook": false,
+        "lore_trap": false,
+        "acoustic_truncation_risk": false,
+        "mid_sentence_cut": false,
+        "duration_violation": false
+      },
+      "critique": "Passes quality audit. Hook occurs in 0-3s, cut lands cleanly on speaker pause, and core conflict is self-evident.",
+      "recommendation": "Primary Top-of-Funnel candidate: Approved for paid social ad campaigns.",
+      "suggested_editorial_fix": "Ensure +0.40s audio fade hold on terminal dialogue.",
+      "tokens": {
+        "input": 400,
+        "output": 160,
+        "cost": 0.0001
+      },
+      "fromCache": false
+    }
+  }
+}

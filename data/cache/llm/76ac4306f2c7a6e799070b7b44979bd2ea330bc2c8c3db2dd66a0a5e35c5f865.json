@@ -1,0 +1,22 @@
+{
+  "data": {
+    "audit_status": "pass",
+    "flags": {
+      "false_action_hook": false,
+      "lore_trap": false,
+      "acoustic_truncation_risk": false,
+      "mid_sentence_cut": false,
+      "duration_violation": false
+    },
+    "critique": "Passes quality audit. Hook occurs in 0-3s, cut lands cleanly on speaker pause, and core conflict is self-evident.",
+    "recommendation": "Primary Top-of-Funnel candidate: Approved for paid social ad campaigns."
+  },
+  "model": "deterministic-heuristic-v1",
+  "tokens": {
+    "input": 400,
+    "output": 160,
+    "cost": 0.0001
+  },
+  "attempts": 1,
+  "fromCache": false
+}

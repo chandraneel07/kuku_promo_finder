@@ -1,0 +1,18 @@
+{
+  "summary": {
+    "total_audited": 0,
+    "pass_count": 0,
+    "warn_count": 0,
+    "fail_count": 0,
+    "pass_rate_pct": 0
+  },
+  "failure_counts_by_type": {
+    "false_action_hook": 0,
+    "lore_trap": 0,
+    "acoustic_truncation_risk": 0,
+    "mid_sentence_cut": 0,
+    "duration_violation": 0
+  },
+  "worst_10_picks": [],
+  "detailed_audits": {}
+}

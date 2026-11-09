@@ -1,0 +1,41 @@
+{
+  "data": {
+    "episode": 1,
+    "summary": "Episode 1 escalates key conflicts between protagonist and antagonists with immediate emotional stakes.",
+    "characters": [
+      "Juliana",
+      "Alexander",
+      "Gerald",
+      "Lady Clarissa"
+    ],
+    "key_moments": [
+      {
+        "id": "MOMENT_EP1_01",
+        "type": "confrontation",
+        "start_sec": 2,
+        "end_sec": 24.5,
+        "description": "High-intensity opening conflict and emotional challenge.",
+        "dialogue_hook": "Look me in the eye and say that again.",
+        "emotional_tone": "anger/shock"
+      },
+      {
+        "id": "MOMENT_EP1_02",
+        "type": "cliffhanger",
+        "start_sec": 32,
+        "end_sec": 54,
+        "description": "Unresolved standoff right before scene transition.",
+        "dialogue_hook": "If you take one more step, there is no turning back.",
+        "emotional_tone": "suspense"
+      }
+    ],
+    "rolling_context_notes": "Episode 1 establishes immediate tension following previous encounters."
+  },
+  "model": "deterministic-heuristic-v1",
+  "tokens": {
+    "input": 450,
+    "output": 180,
+    "cost": 0.00012
+  },
+  "attempts": 1,
+  "fromCache": false
+}

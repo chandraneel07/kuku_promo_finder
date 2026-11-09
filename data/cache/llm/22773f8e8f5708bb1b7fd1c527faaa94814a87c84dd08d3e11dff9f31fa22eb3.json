@@ -1,0 +1,38 @@
+{
+  "data": {
+    "scores": {
+      "hook_strength": 96,
+      "cliffhanger_suspense": 95,
+      "standalone_coherence": 89,
+      "emotional_intensity": 95
+    },
+    "archetype": "The Secret Duke / Royal Retribution",
+    "hook_evaluation": {
+      "score": 96,
+      "detected_triggers": [
+        "dialogue shock",
+        "sudden physical movement"
+      ],
+      "reason": "Immediate stop-scroll impact in first 1.5 seconds."
+    },
+    "cliffhanger_evaluation": {
+      "score": 95,
+      "detected_crescendo": "abrupt cut on unresolved dilemma",
+      "reason": "High psychological tension left hanging at terminal frame."
+    },
+    "standalone_evaluation": {
+      "score": 89,
+      "lore_burden": "low",
+      "reason": "Universal emotional dynamic; cold viewers grasp hero vs villain immediately."
+    },
+    "why_it_works": "Strong emotional polarity with rapid escalation and zero redundant backstory."
+  },
+  "model": "deterministic-heuristic-v1",
+  "tokens": {
+    "input": 520,
+    "output": 210,
+    "cost": 0.00014
+  },
+  "attempts": 1,
+  "fromCache": false
+}

@@ -1,0 +1,129 @@
+[
+  {
+    "id": "PROMO-001",
+    "rank": 1,
+    "episodes": [
+      1
+    ],
+    "duration": 23.6,
+    "strategy": "continuous",
+    "total_score": 93.8,
+    "tier": "Tier S",
+    "funnel_phase": "Phase 1: Betrayal & Degradation",
+    "funnel_description": "Lady Eleanor betrays Julian; exile and public humiliation",
+    "archetype": "The Secret Duke / Royal Retribution",
+    "segments": [
+      {
+        "episode": 1,
+        "start_sec": 0,
+        "end_sec": 23.6,
+        "duration": 23.6
+      }
+    ],
+    "hook": {
+      "text": "Opening scene conflict",
+      "score": 96,
+      "reason": "Immediate stop-scroll impact in first 1.5 seconds."
+    },
+    "cliffhanger": {
+      "text": "Suspense cut",
+      "score": 95,
+      "reason": "High psychological tension left hanging at terminal frame."
+    },
+    "scores": {
+      "hook_strength": 96,
+      "cliffhanger_suspense": 95,
+      "standalone_coherence": 89,
+      "emotional_intensity": 95
+    },
+    "why_it_works": "Strong emotional polarity with rapid escalation and zero redundant backstory.",
+    "excerpt": "--- EPISODE 1 (0s - 23.6s) ---\n[CAMERA: Start: (00:00.00) | End: (00:04.80)\nSymmetrical framing on the heavy church doors as they slowly part, pushing in slightly as Juliana stands framed in the light, dressed in an elegant white silk gown.]\n[ACTION: Start: (00:01.00) | End: (00:04.80)\nJuliana pauses at the threshold, her expression bright with joyful anticipation, wearing her mother's vintage gown and an oval pendant necklace.]\n[CAMERA: Start: (00:04.80) | End: (00:06.80)\nHigh wide tracking shot following behind Juliana as she steps into the grand cathedral nave, facing the distant altar flanked by seated guests.]",
+    "audit": {
+      "promo_id": "PROMO-001",
+      "audit_status": "warn",
+      "flags": {
+        "false_action_hook": true,
+        "lore_trap": false,
+        "acoustic_truncation_risk": false,
+        "mid_sentence_cut": false,
+        "duration_violation": false
+      },
+      "critique": "Passes quality audit. Hook occurs in 0-3s, cut lands cleanly on speaker pause, and core conflict is self-evident.",
+      "recommendation": "Primary Top-of-Funnel candidate: Approved for paid social ad campaigns.",
+      "suggested_editorial_fix": "Ensure +0.40s audio fade hold on terminal dialogue.",
+      "tokens": {
+        "input": 400,
+        "output": 160,
+        "cost": 0.0001
+      },
+      "fromCache": false
+    }
+  },
+  {
+    "id": "PROMO-002",
+    "rank": 2,
+    "episodes": [
+      41,
+      42
+    ],
+    "duration": 43.2,
+    "strategy": "multi_segment",
+    "total_score": 93.8,
+    "tier": "Tier S",
+    "funnel_phase": "Phase 3: Ducal Reveal & Retribution",
+    "funnel_description": "Julian reveals sovereign power and claims the duchy",
+    "archetype": "The Secret Duke / Royal Retribution",
+    "segments": [
+      {
+        "episode": 41,
+        "start_sec": 40.8,
+        "end_sec": 56,
+        "duration": 15.2
+      },
+      {
+        "episode": 42,
+        "start_sec": 0,
+        "end_sec": 28,
+        "duration": 28
+      }
+    ],
+    "hook": {
+      "text": "Opening scene conflict",
+      "score": 96,
+      "reason": "Immediate stop-scroll impact in first 1.5 seconds."
+    },
+    "cliffhanger": {
+      "text": "Suspense cut",
+      "score": 95,
+      "reason": "High psychological tension left hanging at terminal frame."
+    },
+    "scores": {
+      "hook_strength": 96,
+      "cliffhanger_suspense": 95,
+      "standalone_coherence": 89,
+      "emotional_intensity": 95
+    },
+    "why_it_works": "Strong emotional polarity with rapid escalation and zero redundant backstory.",
+    "excerpt": "--- EPISODE 41 (40.8s - 56s) ---\n[CAMERA: Start: (00:08.50) | End: (00:13.00)\nClose-up of Catherine's face, her lips curling into a sadistic, triumphant sneer.]\nCATHERINE (Cruel, Resonant):: \"Start: (00:08.50) | End: (00:12.70)\n\"...I want everyone to see what happens to a woman who dares defy this family.\"\" [40.8s]\n[CAMERA: Start: (00:13.00) | End: (00:15.50)\nTwo-shot profile of Rupert and Catherine. Rupert turns to her with mild caution.]\nBLOND NOBLEMAN (Subdued, Inquiring):: \"Start: (00:13.20) | End: (00:14.00)\n\"Catherine...\"\" [56s]\n\n--- EPISODE 42 (0s - 28s) ---\n[CAMERA: Start: (00:00.00) | End: (00:10.50)\nLow-angle shot through drifting smoke and rubble across the stone floor, tilting up as polished boots step over splintered wood, revealing an imposing nobleman in a gold-embroidered navy coat.]\n[ACTION: Start: (00:01.00) | End: (00:10.50)\nAlexander strides deliberately through the pulverized cathedral doorway. Dressed in the regal ducal coat with gold braided cuffs and a lion crest, his scarred face is set with cold, unyielding authority.]\nBLOND NOBLEMAN (Shocked, Trembling):: \"Start: (00:11.20) | End: (00:12.60)\n\"Who are you?\"\" [28s]",
+    "audit": {
+      "promo_id": "PROMO-002",
+      "audit_status": "pass",
+      "flags": {
+        "false_action_hook": false,
+        "lore_trap": false,
+        "acoustic_truncation_risk": false,
+        "mid_sentence_cut": false,
+        "duration_violation": false
+      },
+      "critique": "Passes quality audit. Hook occurs in 0-3s, cut lands cleanly on speaker pause, and core conflict is self-evident.",
+      "recommendation": "Primary Top-of-Funnel candidate: Approved for paid social ad campaigns.",
+      "suggested_editorial_fix": "Ensure +0.40s audio fade hold on terminal dialogue.",
+      "tokens": {
+        "input": 400,
+        "output": 160,
+        "cost": 0.0001
+      },
+      "fromCache": false
+    }
+  }
+]
